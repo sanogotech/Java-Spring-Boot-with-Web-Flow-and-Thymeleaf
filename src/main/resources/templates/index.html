@@ -1,19 +1,83 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragments/head :: head(title='Home Page')"></head>
+<head th:replace="fragments/headbooking :: headbooking(title='Home Page')">
 
-<body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<h1 th:text="${message}"></h1>
-				<hr />				
-				<a th:href="@{/register}">Sign Up</a>
-			</div>
-		</div>
-	</div>
-	<script th:replace="fragments/scripts :: scripts"></script>
+</head>
+<body class="tundra">
+
+
+<div   id="page" class="container">
+
+
+    <div th:replace="fragments/mysidemenu ::headernavmenu "> 
+
+    </div>
+    
+
+    <!-- First Row -->
+    <div  class="row">
+
+    <!-- First Col 
+    margin utilities like .mr-auto to force sibling columns away from one another.
+      .ml-md-auto  .ml-auto 
+      cass prefix	col-	col-sm-	col-md-	col-lg-	col-xl-
+    -->
+    <div  class="col-4  col-sm-4  col-md-4 col-lg-4  col-xl-4">
+
+        <div th:replace="fragments/mysidemenu ::mysidemenu "> 
+
+        </div>
+    
+    </div>
+    
+      <!-- Second Col -->
+    <div  class="col-8  col-sm-8  col-md-8 col-lg-8 col-xl-8">
+        <div  id="content">
+        
+            <div id="main" >
+                <div>
+                    <h1>Akwaba/Welcome to Spring Travel</h1>
+                    <p>
+                        This sample demonstrates how to use Spring MVC and Spring Web Flow together with JavaServerPages (JSP) and Tiles.
+                    </p>
+                    <hr/>
+                    <p>
+                        The key features illustrated in this sample include:
+                    </p>
+                    <ul>
+                        <li>A declarative navigation model enabling full browser button support and dynamic navigation rules</li>
+                        <li>A fine-grained state management model, including support for ConversationScope and ViewScope</li>
+                        <li>Modularization of web application functionality by domain use case, illustrating project structure best-practices</li>
+                        <li>Spring Expression Language (SpEL) integration</li>
+                        <li>Spring 3 formatting annotations @DateTimeFormat, @NumberFormat</li>
+                        <li>Spring MVC custom namespace</li>
+                        <li>Spring Security integration</li>
+                        <li>Annotated POJO @Controllers for implementing RESTful user interactions.</li>
+                        <li>Declarative page authoring with JSP, JSTL, and Spring MVC's form tag library</li>
+                        <li>Page layout and composition with Apache Tiles</li>
+                        <li>A JavaScript API for decorating HTML elements with behaviors such as Ajax, validation, and effects.</li>
+                        <li>A grid layout with Blueprint CSS</li>
+                        <li>Exception handling support across all layers of the application</li>
+                        <li>SpringSource Tool Suite integration, with support for graphical flow modeling and visualization</li>
+                    </ul>
+                    <p>
+                        <a href="/searchhotel">Start your Spring Travel experience</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <!-- End content div -->
+
+
+    </div>
+    <!-- End Second Col -->
+
+</div>
+<!-- End First Row -->
+
+</div>
+
+<script th:replace="fragments/myscripts :: myscripts"></script>
 </body>
 
 </html>
