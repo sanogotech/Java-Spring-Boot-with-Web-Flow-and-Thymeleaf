@@ -1,0 +1,57 @@
+
+<head th:replace="fragments/headbooking :: headbooking(title='List Hotels')">
+
+</head>
+<body class="tundra">
+
+
+<div   id="page" class="container">
+
+
+    <div th:replace="fragments/mysidemenu ::headernavmenu "> 
+
+    </div>
+    
+
+    <!-- First Row -->
+    <div  class="row">
+
+    <!-- First Col 
+    margin utilities like .mr-auto to force sibling columns away from one another.
+      .ml-md-auto  .ml-auto 
+      cass prefix	col-	col-sm-	col-md-	col-lg-	col-xl-
+    -->
+    <div  class="col-4  col-sm-4  col-md-4 col-lg-4  col-xl-4">
+
+        <div th:replace="fragments/mysidemenu ::mysidemenu "> 
+
+        </div>
+    
+    </div>
+    
+      <!-- Second Col -->
+    <div  class="col-8  col-sm-8  col-md-8 col-lg-8 col-xl-8">
+        <div  id="content">
+            	
+            	<h1>Show Hotel</h1>
+
+		
+			
+
+        
+        </div>
+        <!-- End content div -->
+
+
+    </div>
+    <!-- End Second Col -->
+
+</div>
+<!-- End First Row -->
+
+</div>
+
+<script th:replace="fragments/myscripts :: myscripts"></script>
+</body>
+
+</html>

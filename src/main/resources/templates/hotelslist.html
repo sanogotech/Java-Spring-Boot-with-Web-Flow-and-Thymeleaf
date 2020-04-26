@@ -1,0 +1,122 @@
+
+<head th:replace="fragments/headbooking :: headbooking(title='List Hotels')">
+
+</head>
+<body class="tundra">
+
+
+<div   id="page" class="container">
+
+
+    <div th:replace="fragments/mysidemenu ::headernavmenu "> 
+
+    </div>
+    
+
+    <!-- First Row -->
+    <div  class="row">
+
+    <!-- First Col 
+    margin utilities like .mr-auto to force sibling columns away from one another.
+      .ml-md-auto  .ml-auto 
+      cass prefix	col-	col-sm-	col-md-	col-lg-	col-xl-
+    -->
+    <div  class="col-4  col-sm-4  col-md-4 col-lg-4  col-xl-4">
+
+        <div th:replace="fragments/mysidemenu ::mysidemenu "> 
+
+        </div>
+    
+    </div>
+    
+      <!-- Second Col -->
+    <div  class="col-8  col-sm-8  col-md-8 col-lg-8 col-xl-8">
+        <div  id="content">
+            	
+            	<h1>List Hotels</h1>
+
+				<h1>Hotel Results</h1>
+				<p>
+					<a id="changeSearchLink" href="hotels/search?searchString=${searchCriteria.searchString}&pageSize=${searchCriteria.pageSize}">Change Search</a>
+					<script type="text/javascript">
+						Spring.addDecoration(new Spring.AjaxEventDecoration({
+							elementId: "changeSearchLink",
+							event: "onclick",
+							popup: true,
+							params: {fragments: "searchForm"}		
+						}));
+					</script>
+				</p>
+				
+		
+				
+				<hr/>
+				<div id="hotelResults">
+			<!--  	<span th:unless="${#lists.isEmpty(hotelList)}"> -->
+					<table class="summary">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Address</th>
+								<th>City, State</th>
+								<th>Zip</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+								<tr th:each="hotel : ${hotellist}">
+									<td th:text=${hotel.name}></td>
+									<td th:text=${hotel.address}> </td>
+									<td th:text=${hotel.city}></td>
+									<td th:text=${hotel.zip} > </td>
+									<td><a th:href="@{/hotels/${hotel.id}}">View Hotel</a></td>
+									
+								</tr>
+						
+						
+								<tr th:unless="${#lists.isEmpty(hotelList)}">
+									<td colspan="5">No hotels found</td>
+								</tr>
+						
+						</tbody>
+					</table>
+					<div class="buttonGroup">
+						<div class="span-3">
+							<div th:if="${searchCriteria.page > 0}">
+								<a id="prevResultsLink" href="hotels?searchString=${searchCriteria.searchString}&pageSize=${searchCriteria.pageSize}&page=${searchCriteria.page - 1}"><< Prev</a>
+								<script type="text/javascript">
+									Spring.addDecoration(new Spring.AjaxEventDecoration({
+										elementId: "prevResultsLink",
+										event: "onclick",
+										params: {fragments: "body"}
+									}));
+								</script>
+							</div>
+						</div>
+						
+					</div>
+				
+			<!--  </span>-->
+				
+				</div>	
+				<!-- End list div -->
+			
+
+        
+        </div>
+        <!-- End content div -->
+
+
+    </div>
+    <!-- End Second Col -->
+
+</div>
+<!-- End First Row -->
+
+</div>
+
+<script th:replace="fragments/myscripts :: myscripts"></script>
+</body>
+
+</html>
